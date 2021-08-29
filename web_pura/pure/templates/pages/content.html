@@ -1,0 +1,245 @@
+{% extends "pages/index.html" %}
+{% load static %}
+
+{% comment %} link fb,mail... {% endcomment %}
+{% block link %}
+<ul class="social justify-content-center ">
+{% comment %} {% for i in n %}
+{{forloop.counter}}
+{% endfor %} {% endcomment %}
+{% for i in Link %}
+<li><a class="link" href={{i.linkfb}}> <i class="fa fa-facebook "></i></a></li>
+<li> <a class="link" href={{i.linktwitter}}><i class="fa fa-twitter "></i></a></li>
+<li><a class="link" href="#"><i class="fa fa-google-plus "></i></a></li>
+{% endfor %}
+</ul>
+{% endblock  %}
+
+{% comment %} hero  {% endcomment %}
+{% block hero %}
+<div class="hero">
+
+{% for i in Hero %}
+            <h2>{{i.title}}</h2>
+            <h1>{{i.content|linebreaks}}</h1>
+            <div class="d-grid gap-2 col-1 mx-auto ">
+                <button type="button " class="btn btn-primary ">Discover us.</button>
+            </div>
+        </div>
+{% endfor %}
+{% endblock hero %}
+
+{% comment %} about {% endcomment %}
+{% block about %}
+{% for i in About %}
+ <h1>{{i.about_title}}</h1>
+    <p>{{i.about_content}}</p>
+{% endfor %}
+   
+{% endblock about %}
+{% comment %} process {% endcomment %}
+{% block process %}
+{% for i in Process %}
+ <div class="col-lg-4 col-md-6 text-md-left ">
+    <div class="process-number number-{{forloop.counter}} ">
+        <div class="col-lg-8">
+            <h3 class="process-title ">{{i.process_title}}</h3>
+                <div class="process-content ">
+                    <p>{{i.process_content}}</p>
+                </div>
+         </div>
+    </div>
+ </div>
+{% endfor %}
+{% endblock process %}
+{% comment %} team {% endcomment %}
+{% block team %}
+{% for i in Team %}
+<div class="col-lg-4 col-12 ">
+    <div class="team-hero-content ">
+        <img class="img " src="{{i.image_team.url}}" alt=" ">
+            <div class="team-content-wraper ">
+                <h1 class="name ">{{i.name}}</h1>
+                <h2 class="position ">{{i.position}}</h2>
+                    <div class="team-social align-items-center justify-content-center ">
+                        <a class="team-social-icon " href="{{i.linkfb_team}}"><i class="fa fa-facebook "></i></a>
+                        <a class="team-social-icon " href=""><i class="fa fa-twitter "></i></a>
+                        <a class="team-social-icon " href=""><i class="fa fa-google-plus "></i></a>
+                    </div>
+            </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock team %}
+
+{% comment %} cta1 {% endcomment %}
+{% block cta1 %}
+{% for i in Solution %}
+         <div class="col-lg-7 col-12 ">
+                <img src="{{i.solutions_image.url}}" alt=" ">
+            </div>
+            <div class="col-lg-5 col-12 ">
+                <div class="col-lg-9 ">
+                    <h2>{{i.solutions_title}}</h2>
+                    <h2 class="title ">{{i.solutions_main_title}}</h2>
+                </div>
+                <div class="col-lg-10 ">
+                    <p>{{i.solutions_content}}
+                    </p>
+                    <button type="button " class="btn btn-primary ">Discover us.</button>
+                </div>
+            </div>
+{% endfor %}
+{% endblock cta1 %}
+{% comment %} cta2 {% endcomment %}
+{% block cta2 %}
+<div class="col-lg-6 col-12 ">
+{% for i in Possibilities %}
+                    <h1 class="title ">{{i.possibilities_title}}
+                            <spam>{{i.possibilities_main_title}}</spam>
+                    </h1>
+                    <div class="col-lg-10 ">
+                        <div class="website-content ">
+                            <p>
+                                {{i.possibilities_content|linebreaks}}
+                            </p>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 ">
+                    <div class="website-wraper-img ">
+                        <div class="layer-1 "></div>
+                        <img src="{{i.possibilities_img1.url}} " alt="men " class="layer layer-2 ">
+                        <img src="{{i.possibilities_img2.url}}" alt="wach " class="layer layer-3 ">
+                        <img src="{{i.possibilities_img3.url}}" alt="organik " class="layer layer-4 ">
+                        <img src="{{i.possibilities_img4.url}}" alt="wood wach " class="layer layer-5 ">
+                    </div>
+       {% endfor %}
+                </div>
+{% endblock cta2 %}
+{% comment %} services {% endcomment %}
+{% block services %}
+ <div id="services-s" class="services">
+        <div class="container services-container ">
+        {% for i in Services %}
+            <div class="services-title ">
+                <div class="col-lg-6">
+                    <h2>{{i.services_title}}<span>{{i.services_main_title}}</span></h2>
+                </div>
+
+            </div>
+            <div class="services-feature-light ml-xl-5 ">
+                <div class="col-lg-8">
+                    <i class="fa fa-lightbulb-o feature-icon "></i>
+                    <h4 class="feature-title ">{{i.services_title_feature1}}</h4>
+                    <div class="feature-content ">
+                        <p>{{i.services_content_feature1}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="services-feature-flash ">
+                <div class="col-lg-8">
+                    <i class="fa fa-bolt feature-icon "></i>
+                    <h4 class="feature-title ">{{i.services_title_feature2}}</h4>
+                    <div class="feature-content ">
+                        <p>{{i.services_content_feature2}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="services-content ">
+                <div class="col-lg-8">
+                    <p>{{i.services_content}}</p>
+                </div>
+
+            </div>
+            <div class="services-pc ml-xl-5 ">
+                <div class="col-lg-8">
+                    <i class="fa fa-tv feature-icon "></i>
+                    <h4 class="feature-title ">{{i.services_title_feature3}}</h4>
+                    <div class="feature-content ">
+                        <p>{{i.services_content_feature3}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="services-infinite ">
+                <div class="col-lg-8">
+                    <p class="icon-infi ">&infin;</p>
+                    <h4 class="feature-title ">{{i.services_title_feature4}}</h4>
+                    <div class="feature-content ">
+                        <p>{{i.services_content_feature4}}</p>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock services %}
+{% comment %} footer {% endcomment %}
+{% block footer %}
+
+<footer class="footer" id="footer-s">
+        <div class="container">
+            <div class="row ">
+            {% for i in Footer %}
+                <div class="col-lg-6 ">
+                    <div class="col-lg-9">
+                        <a href="/ " class="footer-logo ">Pura</a>
+                        <span id="footer-sub-logo ">Agency.</span>
+                        <div class="footer-content ">
+                            <p>{{i.footer_content}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 ">
+                    <div class="col-lg-10">
+                        <h4 class="footer-title ">{{i.footer_title_tw}}</h4>
+                        <span class="footer-subtitle ">{{i.footer_main_title_tw}}</span>
+                        <span class="footer-twitter-mail "><p>{{i.footer_main1_title_tw}}</p></span>
+                        <p>{{i.footer_content_tw}}</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 ">
+                    <div class="col-lg-10">
+                        <h4 class="footer-title ">{{i.footer_title_into}}</h4>
+                        <p>{{i.footer_content_into}}</p>
+                        {% for j in Link %}
+                        <div class="footer-contact ">
+                            <div class="footer-email ">
+                                <i class="fa fa-envelope-o footer-icon "></i>
+                                <p>{{j.mail}}</p>
+                            </div>
+
+                            <div class="footer-tel "><i class="fa fa-phone footer-icon "></i>
+                                <p>{{j.phone}}</p>
+                            </div>
+                        </div>
+                        <div class="footer-social ">
+                            <div class="social d-flex ">
+                                <a href="#"><i class="fa fa-facebook-f footer-social-icon "></i></a>
+                                <a href="#"><i class="fa fa-twitter footer-social-icon "></i></a>
+                                <a href="#"><i class="fa fa-google-plus footer-social-icon "></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                 {% endfor %}
+            </div>
+           
+            <div class="row ">
+                <div class="col text-center ">
+                    <div class="footer-copiring ">
+                        <p>©2017 with love by themeptation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+{% endblock footer %}
