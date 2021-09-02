@@ -27,3 +27,5 @@ class Entry(models.Model):
     rating = models.IntegerField()
     def __str__(self):              # __unicode__ on Python 2
         return self.headline
+    def check_name(self):
+        return self.blog == 'aa' or self.blog == 'bb'

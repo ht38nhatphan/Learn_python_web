@@ -6,6 +6,9 @@ from .models import *
 #     list_display = ['linkfb','linktwitter','phone']
 #     search_fields = ['id']
 # ]
+@admin.action(description='Mark selected stories as published')
+def make_published(modeladmin, request, queryset):
+    queryset.update(status='p')
 class ReviewInline(admin.TabularInline):
     model = Blog
 
@@ -21,4 +24,5 @@ admin.site.register(Author,author)
 class entry(admin.ModelAdmin):
     list_display = ['headline']
     search_fields = ['blog']
+    actions = [make_published]
 admin.site.register(Entry,entry)
