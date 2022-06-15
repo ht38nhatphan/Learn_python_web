@@ -3,6 +3,7 @@ import pathlib
 import unittest
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 # gef file path local
 def file_uri(filename):
@@ -40,13 +41,16 @@ class WebpageTests(unittest.TestCase):
         decrease = driver.find_element_by_id("decrease")
         decrease.click()
         self.assertEqual(driver.find_element_by_tag_name("h1").text, "-1")
-
+    def test_check_butons(self):
+        driver.get(file_uri("counter.html"))
+        driver.find_element(By.ID,"increase")
     def test_multiple_increase(self):
         driver.get(file_uri("counter.html"))
         increase = driver.find_element_by_id("increase")
         for i in range(3):
             increase.click()
         self.assertEqual(driver.find_element_by_tag_name("h1").text, "3")
+        driver.close()
     # def test_next(self):
     #     driver.get(file_uri("counter.html"))
     #     next = driver.find_element_by_id("next")
@@ -61,3 +65,4 @@ class WebpageTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
